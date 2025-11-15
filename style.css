@@ -180,7 +180,7 @@ nav a:hover::after {
 
 /* Right image */
 .home-img img {
-  width: 350px;
+  width: 200px;
   border-radius: 15px;
   display: block;
 }
