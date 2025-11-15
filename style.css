@@ -35,7 +35,20 @@ a{color:inherit}
   .menu{display:flex;flex-direction:column;position:fixed;top:0;left:-320px;height:100%;width:320px;padding:80px 22px;background:linear-gradient(180deg, rgba(3,25,20,0.98), rgba(0,10,8,0.98));gap:18px;transition:left .35s cubic-bezier(.2,.9,.2,1);z-index:2200;visibility:hidden}
   .menu.show{left:0;visibility:visible}
 }
+/* Show full navbar on desktop */
+@media (min-width: 992px) {
+  #menu {
+      visibility: visible !important;
+      display: flex !important;
+  }
+}
 
+/* Keep hamburger only on mobile */
+@media (max-width: 991px) {
+  #menu {
+      visibility: hidden;
+  }
+}
 /* Hero */
 .hero{display:flex;align-items:center;justify-content:space-between;padding:40px 22px;gap:24px}
 .hero-text{max-width:640px}
@@ -56,7 +69,7 @@ a{color:inherit}
 .skills li{background:rgba(255,255,255,0.02);display:inline-block;padding:6px 10px;margin:6px;border-radius:999px;color:var(--muted);font-weight:700}
 
 /* projects grid */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid{display:flex;flex-direction: column;gap: 30px;}
 .project{background:var(--card);padding:16px;border-radius:12px}
 
 /* timeline */
@@ -113,4 +126,74 @@ footer{text-align:center;padding:22px;color:var(--muted);font-size:14px;border-t
 
 .hero-btn {
     flex-shrink: 0;
+}
+
+
+.projects-container {
+  display: flex;
+  flex-direction: column !important;
+  gap: 30px;
+}
+
+/* Navbar link underline animation */
+nav a {
+  position: relative;
+  padding-bottom: 4px;
+  text-decoration: none;
+}
+
+/* The animated line */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background-color: var(--accent);  /* your green theme color */
+  transition: width 0.3s ease;
+}
+
+/* When hovered */
+nav a:hover::after {
+  width: 100%;
+}
+/* Desktop layout */
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Left text */
+.home-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.hero-btn {
+  margin-top: auto;
+}
+
+/* Right image */
+.home-img img {
+  width: 350px;
+  border-radius: 15px;
+  display: block;
+}
+
+/* Mobile layout (image goes down) */
+@media (max-width: 768px) {
+  .home-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .home-img img {
+    align-content: flex-end;
+      width: 260px;
+  }
 }
